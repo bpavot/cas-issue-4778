@@ -1,0 +1,35 @@
+info:
+  build:
+    artifact: '@project.artifactId@'
+    name: '@project.name@'
+    description: '@project.description@'
+    version: '@project.version@'
+
+server:
+  port: 8080
+  ssl:
+    enabled: false
+
+spring:
+  application:
+    name: cas-issue-4778
+    id: cas-issue-4778
+
+cas:
+  server:
+    name: http://localhost:8080
+    prefix: ${cas.server.name}/cas
+  host:
+    name: localhost
+
+  authn:
+    accept:
+      users:
+    pac4j:
+      cas:
+        - loginUrl: https://www.delegated-cas.com/connexion/
+          protocol: CAS20
+          clientName: Delegated
+  serviceRegistry:
+    json:
+      location: classpath:/services
